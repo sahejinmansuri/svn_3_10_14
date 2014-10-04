@@ -1,0 +1,431 @@
+<?php
+
+class App_Event_Mobws_RegistrationController_register extends App_Event_WsEventAbstract {
+
+    /**
+     * @param Zend_Controller_Request_Abstract $request 
+     */
+    public function __construct(Zend_Controller_Request_Abstract $request = null)
+    {
+        parent::__construct($request);
+
+        $this->_evt_data = array(
+            'inputs' => array(
+				//personal information
+                'FIRST_NAME' => array('generic', 50, 0, App_Constants::getFormLabel('FIRST_NAME')),
+                'LAST_NAME' => array('generic', 50, 0, App_Constants::getFormLabel('LAST_NAME')),
+				'NATIONALITY' => array('generic', 50, 0, App_Constants::getFormLabel('NATIONALITY')),
+                'COUNTRY_CODE' => array('generic', 50, 0, App_Constants::getFormLabel('COUNTRY_CODE')),
+                'CELLPHONE' => array('generic', 50, 0, App_Constants::getFormLabel('CELLPHONE')),
+				'EMAIL_ADDRESS' => array('generic', 50, 0, App_Constants::getFormLabel('EMAIL_ADDRESS')),
+                'BIRTHDATE' => (array('generic', 50, 0, App_Constants::getFormLabel('BIRTHDATE'))),
+				'GENDER' => array('generic', 50, 0, App_Constants::getFormLabel('GENDER')),
+				'MARITAL_STATUS' => array('generic', 50, 0, App_Constants::getFormLabel('MARITAL_STATUS')),
+				'SPOUSE_NAME' => array('generic', 50, 0, App_Constants::getFormLabel('SPOUSE_NAME')),
+				'OCCUPATION' => array('generic', 50, 0, App_Constants::getFormLabel('OCCUPATION')),
+				
+				//Legal information
+				'MIDDLE_INIT' => array('generic', 50, 0, App_Constants::getFormLabel('MIDDLE_INIT')),
+				'ANNUAL_INCOME' => array('generic', 50, 0, App_Constants::getFormLabel('ANNUAL_INCOME')),
+				'STATUS' => array('generic', 50, 0, App_Constants::getFormLabel('STATUS')),
+				'PAN_NO' => array('generic', 50, 0, App_Constants::getFormLabel('PAN_NO')),
+				'AADHAR_ID' => array('generic', 50, 0, App_Constants::getFormLabel('AADHAR_ID')),
+				'SUBMITTED_ID_PROOF' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ID_PROOF')),
+				
+                //shipping Address
+				'APP_SUITE' => array('generic', 50, 0, App_Constants::getFormLabel('APP_SUITE')),
+                'ADDRESS' => array('generic', 50, 0, App_Constants::getFormLabel('ADDRESS')),
+                'ADDRESS2' => array('generic', 50, 0, App_Constants::getFormLabel('ADDRESS2')),
+                'CITY' => array('generic', 50, 0, App_Constants::getFormLabel('CITY')),
+                'ZIP' => array('generic', 50, 0, App_Constants::getFormLabel('ZIP')),
+                'STATE' => array('generic', 50, 0, App_Constants::getFormLabel('STATE')),
+				'COUNTRY' => array('generic', 50, 0, App_Constants::getFormLabel('COUNTRY')),
+				'LANDLINE_HOME1' => array('generic', 50, 0, App_Constants::getFormLabel('LANDLINE_HOME1')),
+				'LANDLINE_HOME2' => array('generic', 50, 0, App_Constants::getFormLabel('LANDLINE_HOME2')),
+				
+				//permanent address
+				'PT_APP_SUITE' => array('generic', 50, 0, App_Constants::getFormLabel('PT_APP_SUITE')),
+				'PT_ADDRESS' => array('generic', 50, 0, App_Constants::getFormLabel('PT_ADDRESS')),
+				'PT_ADDRESS2' => array('generic', 50, 0, App_Constants::getFormLabel('PT_ADDRESS2')),
+				'PT_CITY' => array('generic', 50, 0, App_Constants::getFormLabel('PT_CITY')),
+				'PT_ZIP' => array('generic', 50, 0, App_Constants::getFormLabel('PT_ZIP')),
+				'PT_STATE' => array('generic', 50, 0, App_Constants::getFormLabel('PT_STATE')),
+				'PT_COUNTRY' => array('generic', 50, 0, App_Constants::getFormLabel('PT_COUNTRY')),
+				'PT_LANDLINE_HOME1' => array('generic', 50, 0, App_Constants::getFormLabel('PT_LANDLINE_HOME1')),
+				'PT_LANDLINE_HOME2' => array('generic', 50, 0, App_Constants::getFormLabel('PT_LANDLINE_HOME2')),
+				'ADDRESS_PROOF' => array('generic', 50, 0, App_Constants::getFormLabel('ADDRESS_PROOF')),
+				
+				'EMAIL' => array('generic', 50, 0, App_Constants::getFormLabel('EMAIL')),
+                'PASSWORD' => array('generic', 50, 0, App_Constants::getFormLabel('PASSWORD')),
+                'PIN' => array('generic', 50, 0, App_Constants::getFormLabel('PIN')),
+                'QUESTION' => array('generic', 50, 0, App_Constants::getFormLabel('QUESTION')),
+                'ANSWER' => array('generic', 50, 0, App_Constants::getFormLabel('ANSWER')),
+				
+				//documents submitted id proof
+				'SUBMITTED_ID_NAME' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ID_NAME')),
+				'SUBMITTED_ID_TYPE' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ID_TYPE')),
+				'SUBMITTED_ID_EXPIRED' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ID_EXPIRED')),
+				'SUBMITTED_ID_NUMBER' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ID_NUMBER')),
+				
+			
+				//documents submitted address proof
+				'SUBMITTED_ADDRESS_NAME' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ADDRESS_NAME')),
+				'SUBMITTED_ADDRESS_TYPE' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ADDRESS_TYPE')),
+				'SUBMITTED_ADDRESS_EXPIRED' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ADDRESS_EXPIRED')),
+				'SUBMITTED_ADDRESS_NUMBER' => array('generic', 50, 0, App_Constants::getFormLabel('SUBMITTED_ADDRESS_NUMBER')),
+				
+				'SIGNATURE' => array('generic', 50, 0, App_Constants::getFormLabel('SIGNATURE')),
+				
+				/*'RESIDENT' => array('generic', 50, 0, App_Constants::getFormLabel('RESIDENT')),
+				'LANDLINE_HOME' => array('generic', 50, 0, App_Constants::getFormLabel('LANDLINE_HOME')),
+				'LANDLINE_OFFICE' => array('generic', 50, 0, App_Constants::getFormLabel('LANDLINE_OFFICE')),*/
+            )
+        );
+    }
+	
+		
+    public function getEvtData() {
+        $data = parent::getEvtData();
+        unset($data['inputs']['KEY']);
+        unset($data['inputs']['IDENTIFIER']);
+        return $data;
+    }
+    
+    public function execute(){
+               App_DataUtils::beginTransaction();
+		
+		$first_name = $this->_request->getParam("FIRST_NAME");
+		$last_name = $this->_request->getParam("LAST_NAME");
+		$nationality = $this->_request->getParam("NATIONALITY");	
+		$country_code = $this->_request->getParam("COUNTRY_CODE");
+		$cellphone = $this->_request->getParam("CELLPHONE");
+		$email_address = $this->_request->getParam("EMAIL_ADDRESS");
+        $birthdate = $this->_request->getParam("BIRTHDATE");
+		$gender = $this->_request->getParam("GENDER");		
+		$marital_status = $this->_request->getParam("MARITAL_STATUS");		
+		$spouse_name = $this->_request->getParam("SPOUSE_NAME");		
+		$occupation = $this->_request->getParam("OCCUPATION");	
+
+		$miidle_init = $this->_request->getParam("MIDDLE_INIT");
+		$annual_income = $this->_request->getParam("ANNUAL_INCOME");
+		$status = $this->_request->getParam("STATUS"); //new	
+		$pan_no = $this->_request->getParam("PAN_NO");		
+		$aadhar_id = $this->_request->getParam("AADHAR_ID");		
+		$submitted_id_proof = $this->_request->getParam("SUBMITTED_ID_PROOF");	
+		
+		$app_suite = $this->_request->getParam("APP_SUITE"); //new
+		$address = $this->_request->getParam("ADDRESS");
+        $address2 = $this->_request->getParam("ADDRESS2");
+		$city = $this->_request->getParam("CITY");
+		$zip = $this->_request->getParam("ZIP");
+		$state = $this->_request->getParam("STATE");
+		$country = $this->_request->getParam("COUNTRY");
+		$landline_home1 = $this->_request->getParam("LANDLINE_HOME1"); //new
+		$landline_home2 = $this->_request->getParam("LANDLINE_HOME2"); //new
+		
+		$pt_app_suite = $this->_request->getParam("PT_APP_SUITE"); //new
+		$pt_address = $this->_request->getParam("PT_ADDRESS");
+		$pt_address2 = $this->_request->getParam("PT_ADDRESS2"); //new
+		$pt_city = $this->_request->getParam("PT_CITY");
+		$pt_zip = $this->_request->getParam("PT_ZIP");
+		$pt_state = $this->_request->getParam("PT_STATE");
+		$pt_country = $this->_request->getParam("PT_COUNTRY");
+		$pt_landline_home1 = $this->_request->getParam("PT_LANDLINE_HOME1"); //new
+		$pt_landline_home2 = $this->_request->getParam("PT_LANDLINE_HOME2"); //new
+		$address_proof = $this->_request->getParam("ADDRESS_PROOF");
+		
+		/*$status= '';
+		
+		$country = '';
+		$pt_country = '';
+	$pt_address = '';
+	$pt_city = '';
+	$pt_state = '';
+	$pt_zip = '';
+	$email_address = '';
+	$address_proof = '';
+	$landline_home = '';
+	$landline_office = '';
+	$signature = '';*/
+		
+		$email = $this->_request->getParam("EMAIL");
+		$password = $this->_request->getParam("PASSWORD");
+		$pin = $this->_request->getParam("PIN");
+		$question = $this->_request->getParam("QUESTION");
+		$answer = $this->_request->getParam("ANSWER");
+		$signature = $this->_request->getParam("SIGNATURE");
+		
+		
+		$resident = $this->_request->getParam("RESIDENT");	
+		$landline_office = $this->_request->getParam("LANDLINE_OFFICE");
+		
+if(!isset($country)){
+	$country = '';
+}
+if(!isset($pt_country)){
+	$pt_country = '';
+}
+if(!isset($pt_address)){
+	$pt_address = '';
+}
+if(!isset($pt_city)){
+	$pt_city = '';
+}
+if(!isset($pt_state)){
+	$pt_state = '';
+}
+if(!isset($pt_zip)){
+	$pt_zip = '';
+}
+if(!isset($email_address)){
+	$email_address = '';
+}
+if(!isset($address_proof)){
+	$address_proof = '';
+}
+if(!isset($landline_home)){
+	$landline_home = '';
+}
+if(!isset($landline_office)){
+	$landline_office = '';
+}
+if(!isset($signature)){
+	$signature = '';
+}
+if(!isset($status)){
+	$status = '';
+}
+if(!isset($app_suite)){
+	$app_suite = '';
+}
+if(!isset($pt_app_suite)){
+	$pt_app_suite = '';
+}
+if(!isset($pt_address2)){
+	$pt_address2 = '';
+}
+if(!isset($pt_landline_home1)){
+	$pt_landline_home1 = '';
+}
+if(!isset($pt_landline_home2)){
+	$pt_landline_home2 = '';
+}
+if(!isset($landline_home1)){
+	$landline_home1 = '';
+}
+if(!isset($landline_home2)){
+	$landline_home2 = '';
+}		
+
+        if(App_User::getUserIdFromEmail($email_address) > 0 ){
+            throw new App_Exception_WsException('Email is already registered');
+        }
+
+        $testmobileid = App_Cellphone::getIdFromCellphone($cellphone,$country_code);
+
+        if ($testmobileid > 0) {
+            throw new App_Exception_WsException('Cellphone is already registered');
+        }
+
+	if ( preg_match('/\d\d\d\d-\d\d-\d\d/',$birthdate) ) {
+	}
+	else {
+            $birthdate = App_DataUtils::fmtdate_human2db($birthdate);
+        }
+
+
+        $sp = new App_Db_Sp_UserCreate($this->_request);
+        $res = $sp->getSimpleResponse(array(
+			'EMAIL' => $email_address,
+            'USER_TYPE' => 'consumer',
+            'PASSWORD'  => Atlasp_Utils::inst()->encryptPassword($password),
+            'STATUS'    => 'unconfirmed',
+			'FIRST_NAME' => $first_name,
+			'LAST_NAME' => $last_name,
+            'MIDDLE_INIT' => $miidle_init,
+            'COUNTRY_CODE' => '91',
+			'BIRTHDATE' => $birthdate,
+            'DATE_ADDED' => date("Y-m-d H:i:s"),
+            'USER_ADDED' => $email,
+            'USER_CHANGED' => $email,
+			'NATIONALITY' => $nationality,
+			'GENDER' => $gender,
+			'MARITAL_STATUS' => $marital_status,
+			'SPOUSE_NAME' => $spouse_name,
+			'OCCUPATION' => $occupation,
+			'ANNUAL_INCOME' => $annual_income,
+			'RESIDENT' => $status,
+			'PAN_NO' => $pan_no,
+			'AADHAR_ID' => $aadhar_id,
+			'SUBMITTED_ID_PROOF' => $submitted_id_proof
+        ));
+        $userid = $res['@p_user_id'];
+        $ecode  = $res['@p_email_code'];
+		
+//profile image code
+$upload = new Zend_File_Transfer_Adapter_Http();
+$upload->setDestination("/var/www/html/incash/tmp");
+$upload->receive();
+$filename = $upload->getFileName('PROFILEIMG');
+
+$extension = explode('.', $filename);	
+$timestamp = time();		
+$target_path = '/var/www/html/incash/public_html/u/profile/'.$userid.'_'.$timestamp.'.'.$extension[1];
+$image_name = $userid.'_'.$timestamp.'.'.$extension[1];
+//move_uploaded_file($filename, $target_path);
+ $data12  = file_get_contents($filename);
+    file_put_contents($target_path,$data12);
+
+	$uinfo = new App_Models_Db_Wigi_User();
+								$uinfof = $uinfo->update(
+                                        array(
+                                                'image_path' => $image_name,
+                                                'image_path2' => $image_name
+                                        ),
+                                        $uinfo->getAdapter()->quoteInto('user_id = ?', $userid)
+                                );
+	
+//profile image code
+    
+        $u = new App_User($userid);
+        $t = App_Tos::getCurrentTos();
+        //$u->addAddress($address,$address2,$city,$state,$zip,$country_code,$country,$pt_country,$pt_address,$pt_city,$pt_state,$pt_zip,$landline_home, $landline_office,$email_address,$address_proof,$signature);
+		$u->addAddress($address,$address2,$city,$state,$zip,$country_code,$country,$pt_country,$pt_address,$pt_city,$pt_state,$pt_zip,$landline_home1,$landline_home2,$email_address,$address_proof,$signature,$app_suite,$pt_app_suite,$pt_address2,$pt_landline_home1,$pt_landline_home2);
+		
+        $u->setAcceptedTos($t->tos_id);
+
+		$mobile_alias = $first_name." ".$last_name;
+        $cellid = $u->addCellphone($cellphone,Atlasp_Utils::inst()->encryptPassword($pin),$mobile_alias,'cellphone' ); 
+
+        $mobileid = App_Cellphone::getIdFromCellphone($cellphone,$country_code);
+
+        $cellobj = new App_Cellphone($mobileid);
+        $cellobj->setDefault();
+
+	$cellobj->addQuestion($question,$answer);
+	
+		$uminfo = new App_Models_Db_Wigi_UserMobile();
+								$uminfof = $uminfo->update(
+                                        array(
+                                                'is_default' => '1'
+                                        ),
+                                        $uinfo->getAdapter()->quoteInto('mobile_id = ?', $mobileid)
+                                );
+
+        $defSettings = new App_DefSettings();
+        $defSettings->createUserSettings( $userid );
+        $defSettings->createMobileSettings( $userid , $mobileid );
+
+        $mobileid = App_Cellphone::getIdFromCellphone($cellphone, $country_code);
+        $c = new App_Cellphone($mobileid);
+        $u = new App_User($c->getUserId());
+		
+		/*$pan_no = 'pan_no';
+		$aadhar_id = 'aadhar_no';*/
+		$data = $data2 = "";
+		$number = '';
+		//$expires = date('Y-m-d', time());
+		$expires = '';
+		$de = new App_DocumentEngine();
+		/*if($pan_no != ''){
+            $pan_id = $de->addDocument($mobileid,'Other','1',$pan_no,$data,$data2,$pan_no,$expires);
+		}
+		if($aadhar_id != ''){
+			$adh_id = $de->addDocument($mobileid,'Other','1',$aadhar_id,$data,$data2,$aadhar_id,$expires);
+		}*/
+		
+		$SUBMITTED_ID_NAME = $this->_request->getParam("SUBMITTED_ID_NAME");
+		$SUBMITTED_ID_TYPE = $this->_request->getParam("SUBMITTED_ID_TYPE");
+		$SUBMITTED_ID_EXPIRED = $this->_request->getParam("SUBMITTED_ID_EXPIRED");
+		$SUBMITTED_ID_NUMBER = $this->_request->getParam("SUBMITTED_ID_NUMBER");
+		
+		$SUBMITTED_ADDRESS_NAME = $this->_request->getParam("SUBMITTED_ADDRESS_NAME");
+		$SUBMITTED_ADDRESS_TYPE = $this->_request->getParam("SUBMITTED_ADDRESS_TYPE");
+		$SUBMITTED_ADDRESS_EXPIRED = $this->_request->getParam("SUBMITTED_ADDRESS_EXPIRED");
+		$SUBMITTED_ADDRESS_NUMBER = $this->_request->getParam("SUBMITTED_ADDRESS_NUMBER");
+		
+		$expires_id_submitted     = App_DataUtils::fmttime_datetime($SUBMITTED_ID_EXPIRED);
+		$expires_address_submitted     = App_DataUtils::fmttime_datetime($SUBMITTED_ADDRESS_EXPIRED);
+		
+				$upload = new Zend_File_Transfer_Adapter_Http();
+                $upload->setDestination("/var/www/html/incash/tmp");
+                $upload->receive();
+                $id_filename1 = $upload->getFileName('SUBMITTED_ID_DOCIMG1');
+                $id_filename2 = $upload->getFileName('SUBMITTED_ID_DOCIMG2');
+				
+				$address_filename1 = $upload->getFileName('SUBMITTED_ADDRESS_DOCIMG1');
+                $address_filename2 = $upload->getFileName('SUBMITTED_ADDRESS_DOCIMG2');
+		
+		
+		$type_array = array('Vehicle Registration','Insurance Card','Passport','Student ID','Credit Card','Bank Card','Airline Card','Hotel Card','Car Rental Card','Membership Card','ID Card','Social Security Card','Gift Card','Prescription','Asset','License','None','Other');
+		
+		if(!in_array($SUBMITTED_ID_TYPE, $type_array)){
+			$SUBMITTED_ID_TYPE = 'Other';
+		}
+		
+		$id_data1  = file_get_contents($id_filename1);
+        $id_data2 = file_get_contents($id_filename2);
+		if($SUBMITTED_ID_NUMBER != "" && $SUBMITTED_ID_NUMBER != NULL){
+			$submitted_id_doc = $de->addDocument($mobileid,$SUBMITTED_ID_TYPE,'1',$SUBMITTED_ID_NAME,$id_data1,$id_data2,$SUBMITTED_ID_NUMBER,$expires_id_submitted);
+		}
+		
+		if(!in_array($SUBMITTED_ADDRESS_TYPE, $type_array)){
+			$SUBMITTED_ADDRESS_TYPE = 'Other';
+		}
+		$addrsss_data1 = file_get_contents($address_filename1);
+        $addrsss_data2 = file_get_contents($address_filename2);
+		if($SUBMITTED_ADDRESS_NUMBER != "" && $SUBMITTED_ADDRESS_NUMBER != NULL){
+			$submitted_address_doc = $de->addDocument($mobileid,$SUBMITTED_ADDRESS_TYPE,'1',$SUBMITTED_ADDRESS_NAME,$addrsss_data1,$addrsss_data2,$SUBMITTED_ADDRESS_NUMBER,$expires_address_submitted);
+		}
+
+        App_DataUtils::commit();
+		/*if($pan_id != ""){
+			$uinfo = new App_Models_Db_Wigi_DocInfo();
+			$uinfof = $uinfo->update(
+                array(
+					'number' => $pan_no
+				),
+				$uinfo->getAdapter()->quoteInto('doc_info_id = ?', $pan_id)
+			);
+		}
+		if($adh_id != ""){
+			$uinfo = new App_Models_Db_Wigi_DocInfo();
+			$uinfof = $uinfo->update(
+                array(
+					'number' => $aadhar_id
+				),
+				$uinfo->getAdapter()->quoteInto('doc_info_id = ?', $adh_id)
+			);
+		}*/
+		
+		if($submitted_id_doc != ""){
+			$uinfo = new App_Models_Db_Wigi_DocInfo();
+			$uinfof = $uinfo->update(
+                array(
+					'number' => $SUBMITTED_ID_NUMBER,
+					'editable' => 0
+				),
+				$uinfo->getAdapter()->quoteInto('doc_info_id = ?', $submitted_id_doc)
+			);
+		}
+		if($submitted_address_doc != ""){
+			$uinfo = new App_Models_Db_Wigi_DocInfo();
+			$uinfof = $uinfo->update(
+                array(
+					'number' => $SUBMITTED_ADDRESS_NUMBER,
+					'editable' => 0
+				),
+				$uinfo->getAdapter()->quoteInto('doc_info_id = ?', $submitted_address_doc)
+			);
+		}
+		
+		
+        $result = array();
+        $result['result']['status'] = 'success';
+        $result['result']['value']  = '';
+        $result['result']['data']   = '';
+        return $result;
+
+        
+    }
+}

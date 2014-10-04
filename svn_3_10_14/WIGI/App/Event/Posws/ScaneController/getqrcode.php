@@ -1,0 +1,40 @@
+<?php
+
+class App_Event_Posws_ScaneController_getqrcode extends App_Event_WsEventAbstract {
+
+    /**
+     * @param Zend_Controller_Request_Abstract $request 
+     */
+    public function __construct(Zend_Controller_Request_Abstract $request = null)
+    {
+        parent::__construct($request);
+
+        $this->_evt_data = array(
+            'inputs' => array(
+                'SCANEID' => array('int', 25, 1, App_Constants::getFormLabel('SCANEID'))
+            )
+        );
+    }
+
+    public function getEvtData() {
+        $data = parent::getEvtData();
+        unset($data['inputs']['KEY']);
+        unset($data['inputs']['IDENTIFIER']);
+        return $data;
+    }
+    
+    public function execute()
+    {
+			App_DataUtils::beginTransaction();
+			$scaneid     = $this->_request->getParam("SCANEID");
+			$ns = new Zend_Session_Namespace(Zend_Registry::get('name'));
+         $de = new App_ScaneEngine();
+         $res = $de->getqrcode($ns->mobileid,$scaneid);
+ 			$result = array();
+         $result['result']['status'] = 'success';
+         $result['result']['value'] = '';
+         $result['result']['data']   = $res;
+			App_DataUtils::commit();
+         return $result;
+    }
+}

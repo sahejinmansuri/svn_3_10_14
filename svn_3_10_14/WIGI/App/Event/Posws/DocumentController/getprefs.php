@@ -1,0 +1,98 @@
+<?php
+
+class App_Event_Posws_DocumentController_getprefs extends App_Event_WsEventAbstract {
+
+    /**
+     * @param Zend_Controller_Request_Abstract $request 
+     */
+    public function __construct(Zend_Controller_Request_Abstract $request = null)
+    {
+        parent::__construct($request);
+
+        $this->_evt_data = array(
+            'inputs' => 0
+        );
+
+    }
+
+    public function getEvtData() {
+        $data = parent::getEvtData();
+        unset($data['inputs']['KEY']);
+        unset($data['inputs']['IDENTIFIER']);
+        return $data;
+    }
+    
+    public function execute(){
+                App_DataUtils::beginTransaction();
+                $ns = new Zend_Session_Namespace(Zend_Registry::get('name'));
+               // App_DataUtils::userlogp('Get',$ns->mobileid,'user_mobile','Get Preferences');
+
+                $c = new App_Cellphone($ns->mobileid);
+                $data = array();
+
+                $uid = $ns->userid;
+                $mid = $ns->mobileid;
+
+                $p = new App_Prefs();
+                $prefs = $p->getCellphonePrefs($uid,$mid);
+
+                $result["session_timeout"] = $prefs["system"]["timeout"];
+                $result["timezone"]        = $prefs["system"]["timezone"];
+               $result["international_trans"] = $prefs["international_trans"];
+                $result["wigicode_timeout"] = $prefs["wigi"]["timeout"];
+                
+                //$result["minimum_balance"] = $prefs["wigi"]["minbal"];
+                //~ $result["max_wigi_amt_txn"] = $prefs["wigi"]["max_per_trans"];
+                //~ $result["max_wigi_amt_day"] = $prefs["wigi"]["max_per_day"];
+                //~ $result["max_wigi_amt_txn"] = $prefs["wigi"]["max_per_trans"];
+                //~ $result["max_wigi_amt_day"] = $prefs["wigi"]["max_per_day"];
+                //~ $result["international_trans"] = $prefs["international_trans"];
+
+                //~ $result["max_gift_amt_txn"] = $prefs["gift"]["max_per_trans"];
+                //~ $result["max_gift_amt_day"] = $prefs["gift"]["max_per_day"];
+                //~ $result["max_gift_get_amt_day"] = $prefs["gift"]["max_get_per_day"];
+//~ 
+                //~ $result["max_fund_amt_txn"] = $prefs["funding"]["max_per_trans"];
+                //~ $result["max_fund_amt_day"] = $prefs["funding"]["max_per_day"];
+
+               $result["statement_method"] = $prefs["notification"]["statement"];
+                //~ $result["alert_method"] = $prefs["notification"]["alert"];
+
+
+                
+                $result["max_tran_amt_day"]=$prefs["max_tran_amt_day"];
+                $result["international_invoice"] = $prefs["international_invoice"];
+                $result["gps_lock"] = $prefs["gps_lock"];
+                $result["invoice_currancy"] = $prefs["invoice_currancy"];
+                $result["time_due"]=$prefs["time_due"];
+                 $result["receipt"]=$prefs["receipt"];
+               $result["refund_policy"]=$prefs["refund_policy"] ;
+                $result["vate_salestax"]=$prefs["vate_salestax"];
+                $result["vate_salestax_percent"] =  $prefs["vate_salestax_percent"];
+                $result["salestax"] = $prefs["salestax"];
+                $result["salestax_percent"] = $prefs["salestax_percent"];
+                $result["servicetax"] = $prefs["servicetax"];
+                $result["servicetax_percent"] =  $prefs["servicetax_percent"];
+                $result["tips"] = $prefs["tips"];
+                $result["tips_percent"] = $prefs["tips_percent"];
+                $result["csttax"] = $prefs["csttax"];
+                $result["csttax_percent"] = $prefs["csttax_percent"];
+                $result["menu"] = $prefs["menu"] ;
+                $result["max_amt_tran"] = $prefs["max_amt_tran"];
+                $result["max_tran_day"] = $prefs["max_tran_day"];
+                $result["longtitude"] = $prefs["longtitude"];
+                $result["lattitude"] = $prefs["lattitude"];
+
+
+
+
+
+                $result1['result']['status'] = 'success';
+                $result1['result']['value']  = '';
+                $result1['result']['data']   = $result;
+
+                App_DataUtils::commit();
+
+                return $result1;
+    }
+}

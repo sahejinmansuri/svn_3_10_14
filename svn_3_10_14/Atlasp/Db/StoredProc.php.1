@@ -1,0 +1,59 @@
+<?php
+class Atlasp_Db_StoredProc {
+    private static $spob;
+
+    private function __construct(){}
+
+    public static function inst(){
+	if (!isset(self::$spob)) {
+	    $c = __CLASS__;
+	    self::$spob = new $c;
+	}
+	return self::$spob;	
+    }
+    
+     public function call($dbstr, $name, $inparam, $outparam, $spretval){
+	$db = Zend_Registry::get($dbstr);
+
+        $in=str_repeat('?,', count($inparam) );
+	$outval = array();
+	#var_dump($inparam);
+	#var_dump($outparam);
+	$stmt=$db->prepare("call $name($in $outparam)");
+
+	for($i=0,$sz=count($inparam); $i<$sz; $i++){
+	    $stmt->bindParam($i+1, $inparam[$i]);    
+	}
+
+	$b = Atlasp_Utils::inst()->startTimer();
+        try {
+
+		$stmt->execute();
+
+	} catch (Exception $e){
+	    var_dump($e); exit;
+	    $t=Zend_Registry::get('times');
+	    $t['SYBSP'] = Atlasp_Utils::inst()->endTimer($b);
+	    Zend_Registry::set('times',$t);
+            throw new Atlasp_Exp_DbException(3001,'Sbyase SP $name Call Error', $e, 1);
+	}
+	$t=Zend_Registry::get('times');
+	$t['SYBSP'] = Atlasp_Utils::inst()->endTimer($b);
+	Zend_Registry::set('times',$t);
+
+	if($spretval ==1) $outval['return_value'] = $stmt->fetchAll();
+	$stmt->closeCursor();
+
+	$resStmt = $db->prepare("select $outparam");
+	try{
+	   $resStmt->execute();    
+	} catch(Exception $e){
+	    var_dump($e); exit;
+	}
+	$outval['out_value'] = $resStmt->fetchAll();
+	$resStmt->closeCursor();
+	return $outval;
+	 
+     }   
+    
+}

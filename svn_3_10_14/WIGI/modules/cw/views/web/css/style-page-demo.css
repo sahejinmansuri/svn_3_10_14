@@ -1,0 +1,45 @@
+@import url('smoothness/jquery-ui-1.8.16.custom.css');
+@import url('style-userpanel.css');
+
+/* Global Styles */
+
+#page h3 {
+	background: #423b35;
+	border-radius: 6px;
+	color: #fff;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 10px 0 14px;
+	padding: 7px 0;
+}
+
+#page .table table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#page .table table th {
+	background: #006BC6;
+	border-bottom: 3px solid #fff;
+	color: #fff;
+	font-size: 11px;
+	padding: 4px 6px;
+	text-align: left;
+}
+
+#page .table table tr {
+	background: #f3f3f3;
+}
+
+#page .table table tr.alt td {
+	background: #f7f7f7;
+}
+
+#page .table table tr td {
+	border-bottom: 3px solid #fff;
+	font-size: 12px;
+	padding: 9px 6px;
+	text-align: left;
+	vertical-align: top;
+}

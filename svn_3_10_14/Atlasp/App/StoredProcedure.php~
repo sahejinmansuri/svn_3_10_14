@@ -1,0 +1,125 @@
+<?php
+class Atlasp_App_StoredProcedure
+{
+    protected $_evt_data = array();
+    protected $_request;
+
+    public function __construct(Zend_Controller_Request_Http $request = null)
+    {
+        $this->_request = $request;
+    }
+
+    public function getEvtData() 
+    {
+        return $this->_evt_data;
+    }
+
+    public function getDbEventParams() 
+    {
+        $d = $this->getEvtData();
+        return $d['dbparams'];
+    }
+
+    public function getDatabaseParams() 
+    {
+        $params = array();
+
+        foreach($this->getDbEventParams() as $dbParam => $postParam) {
+            $params[$dbParam] = addslashes($this->_request->getParam($postParam));
+        }
+
+        return $params;
+    }
+    
+    /** 
+     * The below function returns an array of Results, each element
+     * of the array corresponding to on stored procedure in the evt_data
+     * section.
+     * Based on 'returns_value' key, the element will either have a hash
+     * with 2 keys, or 1 key
+     */  
+    public function getResponse($dinputs = array())
+    {
+		error_log("=======   STORED PROCEDURE START   =====");
+        $d = $this->getEvtData();
+        $cfg = Zend_Registry::get('config');
+ 
+        $appName = Zend_Registry::get('name');
+        $ns = new Zend_Session_Namespace($appName);
+        $identity = $ns->identity;
+        $company = $ns->company;
+        
+        foreach ($d['stored_procs'] as $sp) {
+            $inparams = array();
+            error_log("calling $sp[name]");
+            try{
+                foreach($sp['in'] as $inarr) {
+                    $val = '';
+                    
+                    switch ($inarr[0])
+                    {
+                        case 'session':
+                            $val = $ns->$inarr[1];
+                            break;
+                        case 'identity':
+                            $val = $identity->$inarr[1];
+                            break;
+                        case 'company':
+                            $val = $company->$inarr[1];
+                            break;
+                        case 'input':
+							//error_log("================================".$dinputs[$inarr[1]]);
+                            $val = (isset( $dinputs[$inarr[1]] ))?$dinputs[$inarr[1]]:$this->_request->getParam($inarr[1]);
+							//error_log("================================".$inarr[1]);
+                            break;
+                        case 'constant':
+                            $val = $inarr[1];
+                            break;
+                        case 'value':
+                            $val = $inarr[1];
+                            break;
+                        case 'config':
+                            $val = $cfg->$inarr[1];
+                            break;
+                        case 'var':
+                            break;
+                        default:
+                            break;
+                    }
+                    error_log($inarr[1].'==>'.$val);
+                    $inparams[] = $val;
+                }
+                   
+            }catch(Exception $e){
+                error_log("needed parameter $inarr[1] was not passed to stored proc $sp[name]");
+                throw new Atlasp_Exception_Db("needed parameter $inarr[1] was not passed");    
+            }
+            error_log("=======   STORED PROCEDURE END   =====");
+            $storedProcedure = new Atlasp_Db_StoredProc($d['db_handle'], isset($d['db_type']) ? $d['db_type'] : Atlasp_Db_StoredProc::MYSQL);
+//var_dump("*** BEFORE CALL DUMP ***", $d['db_handle'], $sp['name'], $inparams, $sp['out'], $sp['returns_value'], "*** END BEFORE CALL DUMP ***");
+//echo "PRE-CALL: dbhandle: ".$d['db_handle'].", name: ".$sp['name'].", inparam: ".$inparams.", outparam: ".$sp['out'].", spretval: ".$sp['returns_value']."<br/>";
+            try{
+            $result[] = $storedProcedure->call($sp['name'], $inparams, $sp['out'], $sp['returns_value']);
+            }catch(Exception $e){throw $e;}
+            
+        }     
+
+        return $result;
+    }
+
+    public function getSimpleResponse($dinputs = array()){
+        $res = $this->getResponse($dinputs);
+        
+        if($res[0]['out_value']) {
+        	
+			$result = print_r($res[0]['out_value'][0], TRUE);
+echo"hi";
+print_r($result);
+            exit;
+			error_log("sp_output: $result");
+            return $res[0]['out_value'][0];
+            
+		}
+	 
+    }
+}

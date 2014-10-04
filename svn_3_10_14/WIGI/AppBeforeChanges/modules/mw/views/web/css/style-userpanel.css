@@ -1,0 +1,1131 @@
+/* Personal User Panel */
+
+#sidebar {
+	float: left;
+	width: 262px;
+}
+
+#sidebar .welcome {
+	padding: 26px 26px 28px;
+}
+
+#sidebar .welcome h3 {
+	color: #fff;
+	font-size: 19px;
+	font-weight: normal;
+	margin: 0 0 4px;
+	padding: 0;
+}
+
+#sidebar .welcome p {
+	color: #888;
+	font-size: 11px;
+	margin: 0;
+}
+
+#sidebar .welcome h3 span {
+	color: #006BC6;
+}
+
+#sidebar .navigation {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#sidebar .navigation ul {
+	border-top: 1px solid #595959;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar .navigation ul li {
+	border-bottom: 1px solid #595959;
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar .navigation ul li a {
+	background: transparent;
+	color: #cbcbcb;
+	display: block;
+	line-height: 46px;
+	padding: 0 26px;
+	text-decoration: none;
+}
+
+#sidebar .navigation ul li a:hover {
+	background: #006BC6;
+	color: #fff;
+	text-decoration: none;
+}
+
+#sidebar .navigation ul li.dashboard a {
+	background: transparent url('images/navdashboard.png') 24px 12px no-repeat;
+	padding: 0 26px 0 52px;
+}
+
+#sidebar .navigation ul li.dashboard a:hover {
+	background: #006BC6 url('images/navdashboard.png') 24px -34px no-repeat;
+}
+
+#sidebar .navigation ul li.addfunds a {
+	background: transparent url('images/navaddfunds.png') 24px 12px no-repeat;
+	padding: 0 26px 0 52px;
+}
+
+#sidebar .navigation ul li.addfunds a:hover {
+	background: #006BC6 url('images/navaddfunds.png') 24px -34px no-repeat;
+}
+
+#sidebar .navigation ul li.withdraw a {
+	background: transparent url('images/navwithdraw.png') 24px 12px no-repeat;
+	padding: 0 26px 0 52px;
+}
+
+#sidebar .navigation ul li.withdraw a:hover {
+	background: #006BC6 url('images/navwithdraw.png') 24px -34px no-repeat;
+}
+
+#sidebar .navigation ul li.history a {
+	background: transparent url('images/navhistory.png') 24px 12px no-repeat;
+	padding: 0 26px 0 52px;
+}
+
+#sidebar .navigation ul li.history a:hover {
+	background: #006BC6 url('images/navhistory.png') 24px -34px no-repeat;
+}
+
+#sidebar .navigation ul li.orders a {
+	background: transparent url('images/navstatements.png') 24px 12px no-repeat;
+	padding: 0 26px 0 52px;
+}
+
+#sidebar .navigation ul li.orders a:hover {
+	background: #006BC6 url('images/navstatements.png') 24px -34px no-repeat;
+}
+
+#sidebar .navigation ul li.report a {
+	background: transparent url('images/navstatements.png') 24px 12px no-repeat;
+	padding: 0 26px 0 52px;
+}
+
+#sidebar .navigation ul li.report a:hover {
+	background: #006BC6 url('images/navstatements.png') 24px -34px no-repeat;
+}
+
+#sidebar .navigation ul li.statements a {
+	background: transparent url('images/navstatements.png') 24px 12px no-repeat;
+	padding: 0 26px 0 52px;
+}
+
+#sidebar .navigation ul li.statements a:hover {
+	background: #006BC6 url('images/navstatements.png') 24px -34px no-repeat;
+}
+
+#sidebar .navigation ul li.profile a {
+	background: transparent url('images/navprofile.png') 24px 12px no-repeat;
+	padding: 0 26px 0 52px;
+}
+
+#sidebar .navigation ul li.profile a:hover {
+	background: #006BC6 url('images/navprofile.png') 24px -34px no-repeat;
+}
+
+#sidebar .navigation ul li.current a {
+	background-color: #fff;
+	color: #000;
+	text-decoration: none;
+}
+
+#sidebar .version {
+	padding: 26px 26px 8px;
+}
+
+#sidebar .version p {
+	color: #666;
+	font-size: 11px;
+	margin: 0;
+	text-align: center;
+}
+
+#page .status {
+	background: #f0f0f0;
+	color: #a0a0a0;
+	font-size: 11px;
+	height: 96px;
+	white-space: nowrap;
+	
+	background: -moz-linear-gradient(top, #ffffff 25%, #f0f0f0 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(25%, #ffffff), color-stop(100%, #f0f0f0));
+	background: -webkit-linear-gradient(top, #ffffff 25%, #f0f0f0 100%);
+	background: -o-linear-gradient(top, #ffffff 25%, #f0f0f0 100%);
+	background: -ms-linear-gradient(top, #ffffff 25%, #f0f0f0 100%);
+	background: linear-gradient(top, #ffffff 25%, #f0f0f0 100%);
+}
+
+#page .status ul {
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 26px 20px 20px;
+}
+
+#page .status ul li {
+	display: block;
+	float: left;
+	margin: 0 20px 0 0;
+	padding: 0;
+	width: 160px;
+}
+
+#page .status ul li strong {
+	color: #777;
+	display: block;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+#page .status ul li.balance strong {
+	color: #cc0000;
+	display: block;
+	font-size: 24px;
+	font-weight: normal;
+}
+
+#page .status ul li.cellphones {
+	width: 200px;
+}
+
+#page .status ul li.cellphones strong {
+	display: block;
+	font-size: 11px;
+	width: 80px;
+}
+
+#page .businessinfo {
+	position: absolute;
+	right: 0;
+	top: 18px;
+	width: 696px;
+}
+
+#page .businessinfo p {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+#page .businessinfo p strong {
+	color: #fff;
+	display: block;
+	font-size: 18px;
+}
+
+#page .information {
+	color: #333;
+	padding: 20px;
+	position: relative;
+}
+
+#page .information .setup {
+	padding: 0 0 30px;
+}
+
+#page .information h4 {
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0 0 20px;
+}
+
+#page .information h5 {
+	background: #f0f0f0;
+	font-size: 12px;
+	padding: 4px 6px;
+	margin: 0 0 10px;
+}
+
+#page .information ul.actionlinks {
+	font-size: 11px;
+	font-weight: bold;
+	list-style: none;
+	overflow: hidden;
+	margin: 10px 0;
+	padding: 0;
+}
+
+#page .information ul.actionlinks li {
+	float: left;
+	margin: 0 10px 10px 0;
+	padding: 0;
+}
+
+#page .information ul.actionlinks a {
+	background: #f3f3f3;
+	border: 1px solid #ddd;
+	color: #777;
+	display: block;
+	line-height: 22px;
+	padding: 0 14px;
+	text-align: center;
+	text-decoration: none;
+}
+
+#page .information ul.actionlinks a:hover {
+	background: #eee;
+	color: #333;
+	text-decoration: none;
+}
+
+#page .information ul.pagination {
+	font-size: 11px;
+	font-weight: bold;
+	list-style: none;
+	overflow: hidden;
+	margin: 10px 0;
+	padding: 0;
+}
+
+#page .information ul.pagination li {
+	float: left;
+	margin: 0 10px 10px 0;
+	padding: 0;
+}
+
+#page .information ul.pagination a {
+	background: #f3f3f3;
+	border: 1px solid #ddd;
+	color: #777;
+	display: block;
+	line-height: 22px;
+	padding: 0 8px;
+	text-align: center;
+	text-decoration: none;
+}
+
+#page .information ul.pagination li.selected a {
+	border: 1px solid #aaa;
+	color: #333;
+}
+
+#page .information ul.pagination a:hover {
+	background: #eee;
+	color: #333;
+	text-decoration: none;
+}
+
+#page .information ul.filter {
+	background: #e4f5c8;
+	font-size: 11px;
+	list-style: none;
+	margin: 10px 0;
+	overflow: hidden;
+	padding: 6px;
+}
+
+#page .information ul.filter li {
+	float: left;
+	margin: 0 10px 10px;
+	overflow: hidden;
+	padding: 0;
+}
+
+#page .information ul.filter li p {
+	margin: 8px 0;
+	padding: 0;
+}
+
+#page .information ul.filter li ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#page .information ul.filter li ul li {
+	display: block;
+	float: none;
+	margin: 0 10px 0 0;
+	width: 130px;
+}
+
+#page .information .tabfield ul.filter li ul li {
+	display: block;
+	float: none;
+	margin: 0 0 0 0;
+	width: 130px;
+}
+
+#page .information ul.filter li input, #page .information ul.filter li select {
+	background: #fff url('images/inputbg.png') -2px -2px no-repeat;
+	border: 1px solid #ccc;
+	border-color: #a6a6a6 #ced7db #ced7db #a6a6a6;
+	border-radius: 0px;
+	/*color: #555;*/
+	display: block;
+	float: none;
+	font-size: 12px;
+	margin: 2px 0;
+	padding: 3px;
+	width: 122px;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+
+#page .information ul.filter li ul.withlabels input, #page .information ul.filter li ul.withlabels select {
+	float: right;
+	width: 90px;
+}
+
+#page .information ul.filter li.submit {
+	clear: both;
+	display: block;
+	float: none;
+	text-align: right;
+}
+
+#page .information ul.filter li.submit input {
+	background: #006BC6;
+	border: 0;
+	color: #fff;
+	display: inline;
+	font-size: 11px;
+	height: 28px;
+	padding: 0;
+	width: 100px;
+}
+
+#page .information .lastlogin {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	right: 24px;
+	top: 18px;
+	width: 300px;
+}
+
+#page .information .lastlogin p {
+	margin: 0;
+	color: #888;
+	font-size: 10px;
+	line-height: 11px;
+	text-align: right;
+}
+
+/* Setup Widgets */
+
+#page .formlayout .stepbox {
+	padding-top: 20px;
+}
+
+#page .tools ul {
+	font-size: 11px;
+	list-style: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 685px;
+}
+
+#page .tools ul li {
+	background: #ccc;
+	display: block;
+	float: left;
+	height: 1px; /* js extra */
+	margin: 0 32px 0 0;
+	padding: 0;
+	width: 105px;
+}
+
+#page .tools ul li a {
+	color: #fff;
+	display: block;
+	height: 18px;
+	padding: 85px 0 2px;
+	text-align: center;
+	text-decoration: none;
+}
+
+#page .tools ul li a:hover {
+	text-decoration: none;
+}
+
+#page .tools ul li.action1 {
+	background: #6600cc url('images/btnadd.png') 50% 10px no-repeat;
+}
+
+#page .tools ul li.action2 {
+	background: #00b2cc url('images/btnwithdraw.png') 50% 10px no-repeat;
+}
+
+#page .tools ul li.action3 {
+	background: #cc6a00 url('images/btnhistory.png') 50% 10px no-repeat;
+}
+
+#page .tools ul li.action4 {
+	background: #05cc00 url('images/btnstatements.png') 50% 10px no-repeat;
+}
+
+#page .tools ul li.action5 {
+	background: #467245 url('images/btnprofile.png') 50% 10px no-repeat;
+}
+
+#page .merchantlogo {
+	border: 1px solid #eee;
+	margin: 0;
+	max-height: 80px;
+	max-width: 200px;
+}
+
+#page .merchantinfo .merchantlogo {
+	margin: 0 10px 20px;
+}
+
+#page .setup .dtable {
+	width: 100%;
+}
+
+#page .setup .dtable .dhead .drow {
+	background: #006BC6;
+	border-bottom: 3px solid #fff;
+	color: #fff;
+	font-size: 11px;
+	font-weight: bold;
+	overflow: hidden;
+	text-align: left;
+}
+
+#page .setup .dtable .dhead .drow .dcol {
+	float: left;
+	padding: 4px 6px;
+}
+
+#page .setup .dtable .dbody .drow {
+	background: #f3f3f3;
+	border-bottom: 3px solid #fff;
+	font-size: 12px;
+	min-height: 33px;
+	overflow: hidden;
+}
+
+#page .setup .dtable .dbody .drowalt {
+	background: #f7f7f7;
+}
+
+#page .setup .dtable .dbody .drowsel {
+	background: #d5ebb1;
+}
+
+#page .setup .dtable .dbody .drow .dnormal {
+	overflow: hidden;
+}
+
+#page .setup .dtable .dbody .drow .dextended {
+	background: #444;
+	color: #eee;
+}
+
+#page .setup .dtable .dbody .drow .dextend {
+	background: #5a5e4d url('images/expandbg.png') 0 100% repeat-x;
+	border-bottom: 1px solid #333;
+	color: #fafef9;
+	display: none;
+	font-size: 11px;
+	position: relative;
+}
+
+#page .setup .dtable .dbody .drow .dextend .expandarrow {
+	background: transparent url('images/expandarrow.png') 0 0 no-repeat;
+	height: 10px;
+	left: 50%;
+	margin-left: -5px;
+	position: absolute;
+	top: 2px;
+	width: 10px;
+}
+
+#page .setup .dtable .dbody .drow .dextend .expandtype {
+	background: #fff;
+	border: 4px solid #444;
+	border-bottom: 3px solid #444;
+	color: #333;
+	overflow: hidden;
+	padding: 8px;
+}
+
+#page .setup .dtable .dbody .drow .dcol {
+	float: left;
+	padding: 9px 6px;
+}
+
+#page .transactions .dtable .dbody .drow .dunread {
+	font-weight: bold;
+}
+
+#page .transactions .dtable .col1 {
+	width: 90px;
+}
+
+#page .transactions .dtable .col2 {
+	width: 114px;
+}
+
+#page .transactions .dtable .col3 {
+	width: 282px; /* 114 + 198 */
+}
+
+#page .transactions .dtable .col4 {
+	width: 80px;
+}
+
+#page .transactions .dtable .dbody .drow .dextend p {
+	margin: 0 0 8px;
+}
+
+#page .transactions .dtable .dbody .drow .dextend ul {
+	margin: 0 0 0 4px;
+	padding: 0 0 0 8px;
+}
+
+#page .scanandpay .dtable .col1 {
+	width: 90px;
+}
+
+#page .scanandpay .dtable .col2 {
+	width: 136px;
+}
+
+#page .scanandpay .dtable .col3 {
+	width: 84px;
+}
+
+#page .scanandpay .dtable .col4 {
+	width: 64px;
+}
+
+#page .scanandpay .dtable .col5 {
+	width: 90px;
+}
+
+#page .scanandpay .dtable .col6 {
+	width: 80px;
+}
+
+#page .scanandbuy .dtable .col1 {
+	width: 90px;
+}
+
+#page .scanandbuy .dtable .col2 {
+	width: 136px;
+}
+
+#page .scanandbuy .dtable .col3 {
+	width: 84px;
+}
+
+#page .scanandbuy .dtable .col4 {
+	width: 64px;
+}
+
+#page .scanandbuy .dtable .col5 {
+	width: 90px;
+}
+
+#page .scanandbuy .dtable .col6 {
+	width: 80px;
+}
+
+#page .ecommerce .dtable .col1 {
+	width: 90px;
+}
+
+#page .ecommerce .dtable .col2 {
+	width: 194px;
+}
+
+#page .ecommerce .dtable .col3 {
+	width: 102px;
+}
+
+#page .ecommerce .dtable .col4 {
+	width: 90px;
+}
+
+#page .ecommerce .dtable .col5 {
+	width: 80px;
+}
+
+#page .posorders .dtable .col1 {
+	width: 90px;
+}
+
+#page .posorders .dtable .col2 {
+	width: 134px;
+}
+
+#page .posorders .dtable .col3 {
+	width: 92px;
+}
+
+#page .posorders .dtable .col4 {
+	width: 160px;
+}
+
+#page .posorders .dtable .col5 {
+	width: 80px;
+}
+
+#page .donations .dtable .col1 {
+	width: 90px;
+}
+
+#page .donations .dtable .col2 {
+	width: 204px;
+}
+
+#page .donations .dtable .col3 {
+	width: 194px;
+}
+
+#page .donations .dtable .col4 {
+	width: 80px;
+}
+
+#page .receive .dtable .col1 {
+	width: 90px;
+}
+
+#page .receive .dtable .col2 {
+	width: 204px;
+}
+
+#page .receive .dtable .col3 {
+	width: 194px;
+}
+
+#page .receive .dtable .col4 {
+	width: 80px;
+}
+
+#page .payments .dtable .col1 {
+	width: 90px;
+}
+
+#page .payments .dtable .col2 {
+	width: 204px;
+}
+
+#page .payments .dtable .col3 {
+	width: 194px;
+}
+
+#page .payments .dtable .col4 {
+	width: 80px;
+}
+
+#page .posdevices .dtable .col1 {
+	width: 36px;
+}
+
+#page .posdevices .dtable .col2 {
+	width: 120px;
+}
+
+#page .posdevices .dtable .col3 {
+	width: 200px;
+}
+
+#page .posdevices .dtable .col4 {
+	width: 120px;
+}
+
+#page .posdevices .dtable .col5 {
+	width: 107px;
+}
+
+#page .posdevices .dtable .col6 {
+	width: 107px;
+}
+
+#page .posdevices .dtable .col7 {
+	width: 107px;
+}
+
+#page .posdevices .dtable .col8 {
+	width: 107px;
+}
+
+#page .posdevices .dtable .dbody .col2 {
+	line-height: 30px;
+}
+
+#page .posdevices .dtable .dbody .col3 {
+	line-height: 30px;
+}
+
+#page .posdevices .dtable .dbody .col4 {
+	line-height: 30px;
+}
+
+#page .posdevices .dtable .dbody .col5 {
+	line-height: 30px;
+}
+
+#page .posdevices .dtable .dbody .col6 {
+	line-height: 30px;
+}
+
+#page .posdevices .dtable .dbody .col7 {
+	line-height: 30px;
+}
+
+#page .posdevices .dtable .dbody .col8 {
+	line-height: 30px;
+}
+
+#page .users .dtable .col1 {
+	width: 30px;
+}
+
+#page .users .dtable .col2 {
+	width: 230px;
+}
+
+#page .users .dtable .col3 {
+	width: 160px;
+}
+
+#page .users .dtable .col4 {
+	width: 148px;
+}
+
+/* Extra Classes: Columned Layout */
+
+#page .columnbox .row {
+	overflow: hidden;
+	margin: 0 0 0 10px;
+	padding: 0 0 12px;
+}
+
+#page .columnbox .row p {
+	clear: both;
+	display: block;
+	float: left;
+	margin: 0 12px 0 0;
+	padding: 0;
+	width: 152px;
+}
+
+#page .columnbox .row p.data {
+	clear: none;
+	color: #888;
+	margin: 0;
+}
+
+/* Extra Classes: More Link */
+
+#page .more {
+	margin: 6px 0;
+	text-align: right;
+}
+
+/* Extra Classes: Buttons in Rows */
+
+#page .information ul.rowactions {
+	font-size: 11px;
+	font-weight: bold;
+	list-style: none;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+#page .information ul.rowactions li {
+	float: left;
+	margin: 6px 4px 0 0;
+	padding: 0;
+}
+
+#page .information ul.rowactions a {
+	background: #f3f3f3;
+	border: 1px solid #ddd;
+	color: #999;
+	display: block;
+	line-height: 20px;
+	padding: 0 10px;
+	text-align: center;
+}
+
+#page .information ul.rowactions a:hover {
+	background: #eee;
+	color: #333;
+	text-decoration: none;
+}
+
+/* Extra Classes: Tabs */
+
+#page .tabfield {
+	overflow: hidden;
+}
+
+#page .tabnavigation {
+	overflow: hidden;
+}
+
+#page .tabnavigation ul {
+	border-bottom: 5px solid #006BC6;
+	font-size: 12px;
+	height: 32px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#page .tabnavigation ul li {
+	float: left;
+	margin: 0 4px 0 0;
+	padding: 0;
+}
+
+#page .tabnavigation ul li a {
+	background: #fafafa;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	color: #95be45;
+	display: block;
+	line-height: 28px;
+	margin: 3px 0 0;
+	padding: 0 14px;
+}
+
+#page .tabnavigation ul li a:hover {
+	background: #fff;
+	color: #658e15;
+	line-height: 29px;
+	margin: 2px 0 0;
+	text-decoration: none;
+}
+
+#page .tabnavigation ul li.selected a {
+	background: #fff;
+	background: #006BC6;
+	border: 1px solid #777;
+	border-bottom: 0;
+	border: 0;
+	color: #658e15;
+	color: #fff;
+	line-height: 32px;
+	line-height: 33px;
+	margin: 0;
+	text-decoration: none;
+}
+
+#page .tabnavigation ul li.disabled a {
+	background: #efefef;
+	color: #ccc;
+}
+
+#page .tabfield .tab {
+	display: none;
+	overflow: hidden;
+	padding: 20px;
+}
+
+#page .tabfield .setup {
+	padding: 20px;
+}
+
+/* Special Form Elements */
+
+#page .subformlayout {
+	margin: 0;
+	text-align: left !important;
+	width: 324px;
+	/*width: auto;*/
+}
+
+#page .subformlayout .stepbox {
+	background: #e4f5c8;
+	/*float: left;*/
+	padding: 0;
+	margin: 0 0 16px;
+	padding: 20px;
+	width: 284px;
+}
+
+#page .stepdescription {
+	display: none;
+	float: right;
+	text-align: left;
+	width: 304px;
+}
+
+#page .subformlayout .prompt {
+	clear: both;
+	padding: 0 0 16px;
+}
+
+#page .subformlayout .prompt label {
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	float: none;
+	line-height: normal;
+	padding: 0;
+	margin: 0;
+	width: auto;
+}
+
+#page .subformlayout .prompt input, #page .subformlayout .prompt select {
+	background: #fff url('images/inputbg.png') -2px -2px no-repeat;
+	border: 1px solid #ccc;
+	border-color: #a6a6a6 #ced7db #ced7db #a6a6a6;
+	border-radius: 0px;
+	/*color: #555;*/
+	display: block;
+	float: none;
+	font-size: 17px;
+	margin: 2px 0;
+	padding: 6px;
+	width: 272px;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+
+#page .subformlayout .prompt textarea {
+	background: #fff url('images/inputbg.png') -2px -2px no-repeat;
+	border: 1px solid #ccc;
+	border-color: #a6a6a6 #ced7db #ced7db #a6a6a6;
+	border-radius: 0px;
+	/*color: #555;*/
+	display: block;
+	float: none;
+	font-family: Arial, Verdana, Sans-serif;
+	font-size: 17px;
+	height: 80px;
+	margin: 2px 0;
+	max-width: 272px;
+	min-height: 40px;
+	min-width: 272px;
+	padding: 6px;
+	width: 272px;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+
+#page .subformlayout .prompt input.fileupload {
+	color: #ccc;
+	text-align: left;
+}
+
+#page .subformlayout .prompt select {
+	width: 272px;
+}
+
+#page .subformlayout .prompt select.datemonth {
+	float: left;
+	width: 110px
+}
+
+#page .subformlayout .prompt select.dateday {
+	float: left;
+	width: 54px
+}
+
+#page .subformlayout .prompt select.dateyear {
+	float: left;
+	width: 78px
+}
+
+#page .subformlayout .prompt input.error, #page .subformlayout .prompt select.error {
+	border: 1px solid #f33;
+}
+
+#page .subformlayout .prompt p.tip {
+	color: #999;
+	display: block;
+	font-size: 11px;
+	padding: 1px 0 2px;
+	margin: 0;
+}
+
+#page .subformlayout .prompt p.errormsg {
+	left: 254px;
+	position: absolute;
+	top: 20px;
+}
+
+#page .subformlayout .prompt p.valid {
+	left: 254px;
+	position: absolute;
+	top: 20px;
+}
+
+#page .subformlayout .submit {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	width: 324px;
+}
+
+#page .subformlayout .submit input {
+	background: #006BC6;
+	border: 0;
+	color: #fff;
+	font-size: 12px;
+	height: 38px;
+	padding: 0;
+	width: 50%;
+}
+
+#page .checkboxes {
+	overflow: hidden;
+}
+
+#page .checkboxes ul {
+	font-size: 17px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#page .checkboxes ul li {
+	background: #ddd url('images/inputbg.png') -2px -2px no-repeat;
+	border: 1px solid #ccc;
+	border-color: #a6a6a6 #ced7db #ced7db #a6a6a6;
+	display: block;
+	margin: 2px 0;
+}
+
+#page .checkboxes ul li.selected {
+	background: #fff url('images/inputbg.png') -2px -2px no-repeat;
+	border: 1px solid #006BC6;
+}
+
+#page .checkboxes ul li a {
+	background: transparent url('images/icon-error.png') 8px 50% no-repeat;
+	color: #888;
+	display: block;
+	line-height: 38px;
+	overflow: hidden;
+	padding: 0 0 0 32px;
+}
+
+#page .checkboxes ul li a:hover {
+	color: #6a6a6a;
+	text-decoration: none;
+}
+
+#page .checkboxes ul li.selected a {
+	background: transparent url('images/icon-ok.png') 8px 50% no-repeat;
+	color: #555;
+}
+
+#page .checkboxes ul li a img {
+	display: inline;
+	height: 38px;
+	margin: 0 2px 0 0;
+	vertical-align: middle;
+	width: 38px;
+}

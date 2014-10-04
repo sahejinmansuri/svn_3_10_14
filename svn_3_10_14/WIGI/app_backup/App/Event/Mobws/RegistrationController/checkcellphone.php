@@ -1,0 +1,49 @@
+<?php
+
+class App_Event_Mobws_RegistrationController_checkcellphone extends App_Event_WsEventAbstract {
+
+    /**
+     * @param Zend_Controller_Request_Abstract $request 
+     */
+    public function __construct(Zend_Controller_Request_Abstract $request = null)
+    {
+        parent::__construct($request);
+
+        $this->_evt_data = array(
+            'inputs' => array(
+                'COUNTRY' => array('generic', 50, 1, App_Constants::getFormLabel('COUNTRY')),
+                'CELLPHONE' => array('generic', 50, 1, App_Constants::getFormLabel('CELLPHONE')),
+            )
+
+        );
+    }
+
+    public function getEvtData() {
+        $data = parent::getEvtData();
+        unset($data['inputs']['KEY']);
+        unset($data['inputs']['IDENTIFIER']);
+        return $data;
+    }
+    
+    public function execute(){
+
+                  App_DataUtils::beginTransaction();
+                  $country = $this->_request->getParam("COUNTRY");
+                  $cellphone = $this->_request->getParam("CELLPHONE");
+
+                  $mobileid = App_Cellphone::getIdFromCellphone($cellphone,$country);
+
+                  if ($mobileid > 0) {
+                     throw new App_Exception_WsException('Cellphone is already registered');
+                  }
+
+                  $result = array();
+                  $result['result']['status'] = 'success';
+                  $result['result']['value']  = '';
+                  $result['result']['data']   = '';
+
+                  App_DataUtils::commit();
+
+                  return $result;
+    }
+}

@@ -1,0 +1,22 @@
+			<div id="sidebar">
+				<div class="welcome">
+					<h3>Welcome, <span>{$name}</span></h3>
+					<p>Account: {$usertype}, {$status}</p>
+				</div>
+				<div class="navigation">
+					<ul>
+						<li class="dashboard{if $pageid == 'dashboard'} current{/if}"><a href="{$formbase}dashboard/home">Dashboard</a></li>
+						<li class="addfunds{if $pageid == 'addfunds'} current{/if}"><a href="{$formbase}money/showadd">Add Funds</a></li>
+						<li class="withdraw{if $pageid == 'withdraw'} current{/if}"><a href="{$formbase}money/showwithdraw">Withdraw Funds</a></li>
+						<li class="orders{if $pageid == 'orders'} current{/if}"><a href="{$formbase}orders/scanandpay">Orders</a></li>
+						<li class="history{if $pageid == 'history'} current{/if}"><a href="{$formbase}history/home">History</a></li>
+						<li class="statements{if $pageid == 'statements'} current{/if}"><a href="{$formbase}statement/home">Statements</a></li>
+						<li class="profile{if $pageid == 'profile'} current{/if}"><a href="{$formbase}profile/home">Profile</a></li>
+						<li class="dashboard advanced{if $pageid == 'advanced'} current{/if}"><a href="{$formbase}advanced/home">Advanced Features</a></li>
+            			<li class="statements{if $pageid == 'howitworks'} current{/if}"><a href="{$formbase}how-it-works/">How It Works</a></li>
+					</ul>
+				</div>
+				<div class="version">
+						<p>[Web {$web_version}] [BE {$be_version}]</p>
+				</div>
+			</div>

@@ -1,0 +1,169 @@
+/* Reset */
+
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+ul, li, ol, dl, dd, dt {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Styles */
+
+body {
+	background: #dce0c3 url('images/bg.png') 50% 0 no-repeat fixed;
+	font-family: Helvetica, Arial, Sans-serif;
+}
+
+p {
+	font-size: 14px;
+	line-height: 18px;
+	padding-bottom: 8px;
+}
+
+#main {
+	margin: 0 auto;
+	min-height: 480px;
+	overflow: hidden;
+	width: 320px;
+}
+
+#header {
+	background: #749e3b url('images/topbg.png') 50% 0 repeat-x;
+	border-bottom: 1px solid #a1a898;
+	height: 42px;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+#header h1 {
+	color: #fff;
+	font-size: 20px;
+	line-height: 42px;
+	margin: 0;
+	padding: 1px 0 0;
+	text-align: center;
+	text-shadow: 0 -1px 0 #829070;
+}
+
+#content {
+	margin-top: 43px;
+	padding: 10px;
+}
+
+h4 {
+	font-size: 14px;
+	margin: 14px 0 10px;
+	padding: 0;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.message {
+	background: #f7f7f7;
+	border: 1px solid #bbb;
+	border-radius: 10px;
+	color: #000;
+	margin: 0 0 10px;
+	overflow: hidden;
+	padding: 14px 14px 6px;
+	text-align: center;
+}
+
+.message p {
+	margin: 0 0 8px;
+	padding: 0;
+}
+
+.list {
+	background: #f7f7f7;
+	border: 1px solid #bbb;
+	border-radius: 10px;
+	color: #000;
+	list-style: none;
+	margin: 0 0 14px;
+	overflow: hidden;
+	padding: 0;
+}
+
+.list li {
+	border-bottom: 1px solid #bbb;
+	display: block;
+	margin: 0;
+	min-height: 13px;
+	overflow: hidden;
+	padding: 14px;
+}
+
+.list li:last-child {
+	border: 0;
+}
+
+.list p {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
+
+.list label {
+	color: #000;
+	display: block;
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 18px;
+	width: 70px;
+}
+
+.list div {
+	color: #6c7c4f;
+	display: block;
+	float: left;
+	width: 200px;
+}
+
+.list span {
+	color: #aaa;
+}
+
+.button {
+	background: #9dbf6d url('images/btn_overlay.png') 0 0 repeat-x;
+	border: 1px solid #87a758;
+	border-radius: 6px;
+	color: #fff;
+	display: block;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 36px;
+	overflow: hidden;
+	text-align: center;
+	text-shadow: 0 -1px 0 #777;
+}
+
+.cancel {
+	background: #ccc url('images/btn_overlay.png') 0 0 repeat-x;
+	border: 1px solid #bbb;
+	float: left;
+	margin: 0 7px 0 0;
+	width: 141px;
+}
+
+.submit {
+	float: left;
+	margin: 0 0 0 7px;
+	width: 141px;
+}
